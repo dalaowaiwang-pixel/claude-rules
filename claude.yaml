@@ -1,41 +1,78 @@
-payload:
-  # === 1. 核心域名与显式子域名 ===
-  - DOMAIN-SUFFIX,anthropic.com
-  - DOMAIN-SUFFIX,claude.ai
-  - DOMAIN-SUFFIX,claude.com
-  - DOMAIN-SUFFIX,clau.de
-  - DOMAIN-SUFFIX,claudemcpclient.com
-  - DOMAIN-SUFFIX,claudemcpcontent.com
-  - DOMAIN-SUFFIX,claudeusercontent.com
-  
-  # 显式指定的独立核心子域名（补齐漏掉的 CDN 及开发工作台）
-  - DOMAIN,cdn.anthropic.com
-  - DOMAIN,mcp.anthropic.com
-  - DOMAIN,console.anthropic.com
-  - DOMAIN,workbench.anthropic.com
-  
-  # === 2. CDN 和基础设施 ===
-  - DOMAIN,servd-anthropic-website.b-cdn.net
-  - DOMAIN,anthropic.com.cdn.cloudflare.net
-  
-  # === 3. 认证与内容服务 ===
-  - DOMAIN,anthropic.auth0.com
-  - DOMAIN,anthropic-com.ghost.io
-  
-  # === 4. 监控、数据上报与防欺诈 ===
-  - DOMAIN-SUFFIX,sentry.io
-  - DOMAIN-SUFFIX,statsigapi.net
-  - DOMAIN,browser-intake-us5-datadoghq.com
-  - DOMAIN-KEYWORD,datadog
-  - DOMAIN-KEYWORD,sift
-  - DOMAIN-KEYWORD,sentry
-  
-  # === 5. 客服与第三方 Widget ===
-  - DOMAIN-SUFFIX,intercom.io
-  - DOMAIN-SUFFIX,intercomcdn.com
-  - DOMAIN,cdn.usefathom.com
-  
-  # === 6. IP 段 / ASN 兜底 ===
-  - IP-CIDR,160.79.104.0/21,no-resolve
-  - IP-CIDR6,2607:6bc0::/32,no-resolve
-  - IP-ASN,399358,no-resolve
+# AI Proxy Rules - Anthropic & Claude Code
+# Comprehensive merge: Screenshot requirements + VPSDance rules
+# Supports: Claude Web, API, MCP Protocol, and Claude Code Terminal
+
+# 1. Core Domains & Developer Infrastructure
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,anthropic.com.cn
+DOMAIN-SUFFIX,anthropic.team
+DOMAIN-SUFFIX,antspace.dev
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.app
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.new
+DOMAIN-SUFFIX,claude.site
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,claudepages.dev
+DOMAIN-SUFFIX,claudestudio.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,modelcontextprotocol.com
+DOMAIN-SUFFIX,modelcontextprotocol.io
+DOMAIN-SUFFIX,modelcontextprotocol.net
+DOMAIN-SUFFIX,modelcontextprotocol.org
+DOMAIN-SUFFIX,useanthropic.com
+
+# 2. Explicit Subdomains (To prevent routing leaks)
+DOMAIN,cdn.anthropic.com
+DOMAIN,console.anthropic.com
+DOMAIN,mcp.anthropic.com
+DOMAIN,workbench.anthropic.com
+
+# 3. Terminal Authentication (Required for Claude Code Clerk login)
+DOMAIN-SUFFIX,auth.claude.ai
+DOMAIN-SUFFIX,clerk.accounts.dev
+DOMAIN-SUFFIX,clerk.anthropic.com
+DOMAIN-SUFFIX,clerk.com
+DOMAIN-SUFFIX,clerk.dev
+
+# 4. Terminal Dependencies (Node.js & GitHub packages)
+DOMAIN-SUFFIX,npmjs.com
+DOMAIN-SUFFIX,npmjs.org
+DOMAIN,raw.githubusercontent.com
+
+# 5. Third-Party Services, CDN & Telemetry
+DOMAIN,anthropic-com.ghost.io
+DOMAIN,anthropic.auth0.com
+DOMAIN,anthropic.com.cdn.cloudflare.net
+DOMAIN,browser-intake-us5-datadoghq.com
+DOMAIN,cdn.growthbook.io
+DOMAIN,cdn.usefathom.com
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,storage.googleapis.com
+DOMAIN-SUFFIX,chatbotclaude.com
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,interface.feedback
+DOMAIN-SUFFIX,lcicat.org
+DOMAIN-SUFFIX,lcicollections.org
+DOMAIN-SUFFIX,mcpservertest.online
+DOMAIN-SUFFIX,muthos.com
+DOMAIN-SUFFIX,pusher.com
+DOMAIN-SUFFIX,sentry.cloud
+DOMAIN-SUFFIX,sentry.dev
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,sillylittleguy.org
+DOMAIN-SUFFIX,stats.pusher.com
+DOMAIN-SUFFIX,statsigapi.net
+
+# 6. Keyword Fallbacks
+DOMAIN-KEYWORD,datadog
+DOMAIN-KEYWORD,sentry
+DOMAIN-KEYWORD,sift
+
+# 7. Network IPs & ASN (Strict Routing)
+IP-CIDR,160.79.104.0/21,no-resolve
+IP-CIDR6,2607:6bc0::/32,no-resolve
+IP-ASN,399358,no-resolve
