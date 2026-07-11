@@ -1,0 +1,41 @@
+payload:
+  # === 1. 核心域名与显式子域名 ===
+  - DOMAIN-SUFFIX,anthropic.com
+  - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-SUFFIX,claude.com
+  - DOMAIN-SUFFIX,clau.de
+  - DOMAIN-SUFFIX,claudemcpclient.com
+  - DOMAIN-SUFFIX,claudemcpcontent.com
+  - DOMAIN-SUFFIX,claudeusercontent.com
+  
+  # 显式指定的独立核心子域名（补齐漏掉的 CDN 及开发工作台）
+  - DOMAIN,cdn.anthropic.com
+  - DOMAIN,mcp.anthropic.com
+  - DOMAIN,console.anthropic.com
+  - DOMAIN,workbench.anthropic.com
+  
+  # === 2. CDN 和基础设施 ===
+  - DOMAIN,servd-anthropic-website.b-cdn.net
+  - DOMAIN,anthropic.com.cdn.cloudflare.net
+  
+  # === 3. 认证与内容服务 ===
+  - DOMAIN,anthropic.auth0.com
+  - DOMAIN,anthropic-com.ghost.io
+  
+  # === 4. 监控、数据上报与防欺诈 ===
+  - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,statsigapi.net
+  - DOMAIN,browser-intake-us5-datadoghq.com
+  - DOMAIN-KEYWORD,datadog
+  - DOMAIN-KEYWORD,sift
+  - DOMAIN-KEYWORD,sentry
+  
+  # === 5. 客服与第三方 Widget ===
+  - DOMAIN-SUFFIX,intercom.io
+  - DOMAIN-SUFFIX,intercomcdn.com
+  - DOMAIN,cdn.usefathom.com
+  
+  # === 6. IP 段 / ASN 兜底 ===
+  - IP-CIDR,160.79.104.0/21,no-resolve
+  - IP-CIDR6,2607:6bc0::/32,no-resolve
+  - IP-ASN,399358,no-resolve
