@@ -1,0 +1,86 @@
+# =============================================
+# Claude / Anthropic 纯域名集（Shadowrocket 版）
+# 来源：https://github.com/dalaowaiwang-pixel/claude-rules
+# 由 claude.yaml 转换而来（合并 VPSDance + 社区抓包）
+# 支持：Claude Web、API、MCP、Claude Code Terminal
+# 使用方法：添加到 [Rule] 段，或作为远程规则集后手动指定策略
+# =============================================
+
+# ==================== 核心域名 ====================
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,anthropic.com.cn
+DOMAIN-SUFFIX,anthropic.team
+DOMAIN-SUFFIX,antspace.dev
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.app
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.new
+DOMAIN-SUFFIX,claude.site
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,claudepages.dev
+DOMAIN-SUFFIX,claudestudio.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,modelcontextprotocol.com
+DOMAIN-SUFFIX,modelcontextprotocol.io
+DOMAIN-SUFFIX,modelcontextprotocol.net
+DOMAIN-SUFFIX,modelcontextprotocol.org
+DOMAIN-SUFFIX,useanthropic.com
+
+# ==================== 显式子域名 ====================
+DOMAIN,cdn.anthropic.com
+DOMAIN,console.anthropic.com
+DOMAIN,mcp.anthropic.com
+DOMAIN,workbench.anthropic.com
+DOMAIN,auth.claude.ai
+
+# ==================== Claude Code Terminal 认证 ====================
+DOMAIN-SUFFIX,clerk.com
+DOMAIN-SUFFIX,clerk.dev
+DOMAIN,clerk.accounts.dev
+DOMAIN,clerk.anthropic.com
+
+# ==================== Claude Code Terminal 依赖 ====================
+DOMAIN-SUFFIX,npmjs.com
+DOMAIN-SUFFIX,npmjs.org
+DOMAIN,raw.githubusercontent.com
+
+# ==================== CDN & 静态资源 ====================
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,anthropic.com.cdn.cloudflare.net
+DOMAIN,storage.googleapis.com
+
+# ==================== 认证与第三方 ====================
+DOMAIN,anthropic.auth0.com
+DOMAIN,anthropic-com.ghost.io
+DOMAIN,cdn.growthbook.io
+DOMAIN,cdn.usefathom.com
+DOMAIN,browser-intake-us5-datadoghq.com
+
+# ==================== 监控 / 遥测 / 反欺诈 ====================
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,sentry.cloud
+DOMAIN-SUFFIX,sentry.dev
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN-SUFFIX,pusher.com
+DOMAIN,stats.pusher.com
+DOMAIN-KEYWORD,datadog
+DOMAIN-KEYWORD,sentry
+DOMAIN-KEYWORD,sift
+
+# ==================== 其他第三方组件 ====================
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,interface.feedback
+DOMAIN-SUFFIX,lcicat.org
+DOMAIN-SUFFIX,lcicollections.org
+DOMAIN-SUFFIX,chatbotclaude.com
+DOMAIN-SUFFIX,mcpservertest.online
+DOMAIN-SUFFIX,muthos.com
+DOMAIN-SUFFIX,sillylittleguy.org
+
+# ==================== IP 兜底（推荐保留） ====================
+IP-CIDR,160.79.104.0/21,no-resolve
+IP-CIDR6,2607:6bc0::/32,no-resolve
+IP-ASN,399358,no-resolve
